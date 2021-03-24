@@ -1,0 +1,20 @@
+{
+  "name": "Rick-and-Morty-API",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass --watch lieux/css/lieux.scss:css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinJCMotived/Rick-and-Morty-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinJCMotived/Rick-and-Morty-API/issues"
+  },
+  "homepage": "https://github.com/kevinJCMotived/Rick-and-Morty-API#readme"
+}
