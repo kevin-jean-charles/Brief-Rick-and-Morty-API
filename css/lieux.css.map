@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,IAAI;EACA,gBAAgB,EAAE,KAAK",
-"sources": ["../lieux/css/lieux.scss"],
-"names": [],
-"file": "lieux.css"
-}
