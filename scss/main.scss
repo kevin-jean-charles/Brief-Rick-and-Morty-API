@@ -1,9 +1,25 @@
 // VARIABLES
+$duration: .3s;
 
 @import './variables';
 @import './mixin';
+@import './modules/card';
 @import '../lieux/scss/lieux';
 @import '../accueil/scss/accueil';
 @import '../personnage/scss/personnage';
 
+*{ box-sizing: border-box; }
 
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    background-color: #d8e0e5;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.responsive_img{
+    width: 100%;
+    height: auto;
+}
