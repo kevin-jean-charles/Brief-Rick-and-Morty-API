@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "sass --watch lieux/css/lieux.scss:css/main.css"
+    "dev_lieux": "browser-sync start --server --files='lieux',  css/*.css, js/*.js, *.html' & sass --watch lieux/css/lieux.scss:lieux/css/lieux.css"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/kevinJCMotived/Rick-and-Morty-API/issues"
   },
-  "homepage": "https://github.com/kevinJCMotived/Rick-and-Morty-API#readme"
+  "homepage": "https://github.com/kevinJCMotived/Rick-and-Morty-API#readme",
+  "devDependencies": {
+    "sass": "^1.32.8"
+  }
 }
