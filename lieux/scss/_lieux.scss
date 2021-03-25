@@ -9,7 +9,7 @@
             width: 100%;
             height: inherit;
         }
-    }
+    }   
     &_body{
         background: #fff;
         padding: 10px;
@@ -25,12 +25,51 @@
         font-weight: 400;
         display: block;
     }
+    &_details{
+        padding: 10px;
+    }
+    &_card{
+        position: relative;
+        height: 200px;
+        background-image: url("../images/loc_bg.jpeg");
+        background-size: cover;
+        img{
+            width: 100%;
+            height: inherit
+        }
+        &_body {
+            background-color: #fff;
+            width: 100%;
+            height: 120px;
+            bottom: 0px;
+            padding: 10px;
+            width: 100%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            :first-child{
+                color: $colorOrange;
+                background: #e7e7e7;
+                padding: 4px 8px; 
+                width: auto;
+                text-align: center;
+                display: inline;
+                border-radius: 10px;
+                font-size: 11px;
+            }
+            a{
+                margin-top: 20px;
+                display: block;
+            }
+        }
+    }
 
     &_list{
         @include flexArrow();
+        margin: 0;
+        padding: 0;
         list-style: none;
         li{
             margin-bottom: 20px;
+            padding: 10px;
             span{
                 display: block;
             }
@@ -38,3 +77,29 @@
     }
     
 }
+
+@media screen and (min-width: 370px) and (max-width: 600px){
+ 
+}
+
+@media screen and (min-width: 600px) and (max-width: 820px){
+
+}
+
+@media screen and (min-width: 820px) and (max-width: 992px){
+    .locations{
+        &_details{
+           width: 33%;
+           padding: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px){
+    .locations{
+        &_details{
+           padding: 10px;
+        }
+    }
+}
+

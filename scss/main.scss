@@ -4,6 +4,7 @@ $duration: .3s;
 @import './variables';
 @import './mixin';
 @import './modules/card';
+@import './modules/modal';
 @import '../lieux/scss/lieux';
 @import '../accueil/scss/accueil';
 @import '../personnage/scss/personnage';
@@ -16,6 +17,7 @@ body{
     line-height: 1.4;
     background-color: #d8e0e5;
     max-width: 1200px;
+    height: 100vh;
     margin: 0 auto;
 }
 

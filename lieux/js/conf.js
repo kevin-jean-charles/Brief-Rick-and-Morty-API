@@ -1,5 +1,6 @@
 const API_LINK = {
-    ipinfo: "https://rickandmortyapi.com/api/location"
+    api: "https://rickandmortyapi.com/api/location",
+    searchByType: "https://rickandmortyapi.com/api/location?type=",
 }
   
 module.exports = {

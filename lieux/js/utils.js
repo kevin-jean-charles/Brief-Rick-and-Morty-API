@@ -22,5 +22,6 @@ function _insertAfter(element, newElement) {
 
 module.exports = {
   _fetchData,
-  _insertAfter
+  _insertAfter,
+  _replaceClass
 }
