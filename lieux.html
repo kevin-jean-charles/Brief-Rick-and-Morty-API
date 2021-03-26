@@ -8,52 +8,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="scss/main.scss">
-    <script src="/lieux/js/script.js"></script>
+    <script src="lieux/js/script.js"></script>
 </head>
 <body>
     <div class="locations">
         <div class="locations_bg">
             <img src="images/dance_g.gif" alt="rick and morty">
         </div>
-        <div class="search_by_type">
-            <h2>Recherche</h2>
-            <span>
-                <input type="radio" name="type" value="All">
-                All
-            </span>
-            <span>
-                <input type="radio" name="type" value="Planet">
-                Planet
-            </span>
-            <span>
-                <input type="radio" name="type" value="Cluster">
-                Cluster
-            </span>
-            <span>
-                <input type="radio" name="type" value="Space station">
-                Space station
-            </span>
-            <span>
-                <input type="radio" name="type" value="Microverse">
-                Microverse
-            </span>
-            <span>
-                <input type="radio" name="type" value="TV">
-                TV
-            </span>
-            <span>
-                <input type="radio" name="type" value="Resort">
-                Resort
-            </span>
-            <span>
-                <input type="radio" name="type" value="Fantasy town">
-                Fantasy town
-            </span>
-            <span>
-                <input type="radio" name="type" value="Dream">
-                Dream
-            </span>
+        <div class="autocomplete" style="width:300px;">
+            <input id="myInput" type="text"  placeholder="Country">
         </div>
+        <input type="submit" class="search">
     </div>
    
     <div class="dataList"></div>
