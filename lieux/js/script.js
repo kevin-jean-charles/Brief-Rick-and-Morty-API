@@ -6,9 +6,7 @@ class Location{
     curent_page = 1;
     info = {};
     locations = [];
-    location = {};
     constructor(){
-        
     _fetchData(API_LINK.api + "?page=" + this.curent_page)
       .then((locations) => {
             let locations_bg = document.querySelector('.locations');
@@ -25,7 +23,6 @@ class Location{
     }
 
     init(){ 
-        
         return `<div class="locations_body">
                     <h1 class="locations_title">Rick And Morty</h1>
                     <span class="locations_count">Location (${this.info.count})</span>
@@ -39,19 +36,65 @@ class Location{
         locations_list.innerHTML = "";
         locations.forEach(location => {
             let li = document.createElement('li');
-            li.innerHTML += `<li>
-                                <div class="locations_card">
-                                    <div class="locations_card_body">
-                                        <span class="locations_card_label">${location.type}</span>
-                                        <a data-url="${location.url}" href="#" class="location_name">${location.name}</a>
-                                        <span class="location_dimension">${location.dimension}</span>
-                                    </div>
-                                </div>
-                            </li>`;
+            li.innerHTML += `<div class="locations_card">
+                                <div class="ribbon up" style="--color: #8975b4;">
+                                <div class="content">${location.residents.length}</div>
+                            </div>
+                            <div class="locations_card_body">
+                                <span class="locations_card_label">${location.type}</span>
+                                <a data-url="${location.url}" href="#" class="location_name">${location.name}</a>
+                                <span class="location_dimension">${location.dimension}</span>
+                            </div>`;
             li.querySelector('a').addEventListener('click', this.showDetails.bind(this));
             locations_list.append(li);
-    });
+        });
+        this.cratePagintion();
+        
     }
+
+    cratePagintion(){
+        let buttons = document.querySelector('.buttons');
+        buttons.innerHTML = "";
+        let next = document.createElement('button');
+        let prev = document.createElement('button');
+        prev.className = "button button--green";
+        prev.textContent = "<< Prcédent";
+        prev.dataset.url = this.info.prev;
+        prev.addEventListener('click', this.prev.bind(this))
+        next.className = "button button--green";
+        next.textContent = "Suivant >>";
+        next.dataset.url = this.info.next;
+        next.addEventListener('click', this.next.bind(this))
+        buttons.appendChild(prev);
+        buttons.appendChild(next);
+    }
+
+    prev(e){
+        if(e.target.dataset.url !== 'null'){
+            _fetchData(e.target.dataset.url)
+            .then((locations) => {
+                const {info, results} = locations;
+                this.info = info;
+                this.createLocations(results);
+            });
+        }else{ 
+            e.target.setAttribute('desabled', true); 
+        }
+    }
+
+    next(e){
+        if(e.target.dataset.url !== 'null'){
+            _fetchData(e.target.dataset.url)
+            .then((locations) => {
+                const {info, results} = locations;
+                this.info = info;
+                this.createLocations(results);
+            });
+        }else{ 
+            e.target.setAttribute('desabled', true); 
+        }
+    }
+
 
     showDetails(e){
         e.preventDefault();   
@@ -76,7 +119,7 @@ class Location{
     searchByType(){
         let button_search = document.querySelector('.search');
         button_search.addEventListener('click', (e)  => {
-            let input = e.target.previousElementSibling.querySelector('input');
+            let input = e.target.previousElementSibling;
             _fetchData(API_LINK.searchByType + input.value)
                 .then((locations) => {
                      if(input.value.trim().length > 0){

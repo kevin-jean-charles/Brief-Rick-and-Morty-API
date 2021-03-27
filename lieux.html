@@ -6,21 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="scss/main.scss">
+    <link href="https://fonts.googleapis.com/css2?family=Vampiro+One&display=swap" rel="stylesheet">    <link rel="stylesheet" href="scss/main.scss">
     <script src="lieux/js/script.js"></script>
 </head>
-<body>
+<body class="lieux">
+    <header>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="personnage.html">Personnage</a>
+            <a href="episode.html">Episode</a>
+            <a href="lieux.html">Location</a>
+        </nav>
+    </header>
     <div class="locations">
-        <div class="locations_bg">
-            <img src="images/dance_g.gif" alt="rick and morty">
-        </div>
         <div class="autocomplete" style="width:300px;">
-            <input id="myInput" type="text"  placeholder="Country">
+            <input id="myInput" type="text"  placeholder="Types">
+            <input type="submit" class="search">
         </div>
-        <input type="submit" class="search">
+
+        <div class="dataList"></div>
     </div>
-   
-    <div class="dataList"></div>
+    <div class="buttons"></div>
 </body>
 </html>

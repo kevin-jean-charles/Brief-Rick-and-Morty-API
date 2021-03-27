@@ -1,2 +1,17 @@
+@font-face {
+	font-family: "Blood";
+	src: url('../polices/Blood-Thirst.ttf');
+}
+
+@font-face {
+	font-family: "Schwifty";
+	src: url('../polices/get-schwifty.ttf');
+}
+
+$Blood: 'Blood' , sans-serif;
+$Schwifty: 'Schwifty' , sans-serif;
+
 $duration: 0.3;
 $colorOrange: #EF5A31;
+
+

@@ -1,51 +1,77 @@
 // LOCATION
+
+*{ box-sizing: border-box; }
+
+.lieux{
+    background: url('../images/A1NLo2zU4LL._SL1500_.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.responsive_img{
+    width: 100%;
+    height: auto;
+}
+
 .locations{
-    padding: 10px;
+   
+    height: 100%;
+    padding-top: 100px;
     a{
         text-decoration: none;
     }
     &_bg{
         height: 450px;
+        margin-top: 52px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         img{
             width: 100%;
             height: inherit;
         }
     }   
     &_body{
-        background: #fff;
         padding: 10px;
         min-height: 400px;
     }
-  
+
+    &_title{
+        color: #fff;
+        font-size: 3em;
+        text-shadow: 0 0 10px #000;    
+    }
+
     &_count{
         font-size: 16px;
         font-weight: 400;
     }
+
     &_link{
         font-size: 16px;
         font-weight: 400;
         display: block;
     }
+
     &_details{
         padding: 10px;
     }
+
     &_card{
         position: relative;
-        height: 200px;
-        background-image: url("../images/loc_bg.jpeg");
-        background-size: cover;
+        min-width: 200px;
         img{
             width: 100%;
             height: inherit
         }
         &_body {
-            background-color: #fff;
+            background-color: #ddd;
             width: 100%;
-            height: 120px;
+            height: 150px;
             bottom: 0px;
-            padding: 10px;
             width: 100%;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px 5px 10px 10px;
             :first-child{
                 color: $colorOrange;
                 background: #e7e7e7;
@@ -56,8 +82,11 @@
                 border-radius: 10px;
                 font-size: 11px;
             }
+            &:hover{
+                box-shadow: 0 1px 12px rgba(0,0,0,0.12), 0 3px 12px rgba(0,0,0,0.24);
+            }
             a{
-                margin-top: 20px;
+                margin-top: 15px;
                 display: block;
             }
         }
@@ -80,6 +109,36 @@
 }
 
 
+.buttons{
+    .button{
+        border: none;
+        display: inline-block;
+        padding: 8px 16px;
+        vertical-align: middle;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        background-color: inherit;
+        text-align: center;
+        cursor: pointer;
+        margin-bottom: 30px;
+        border: none;
+        outline: none;
+        margin-right: 5px;
+    }
+}
+
+
+.button--green{
+    color: #fff!important;
+    background-color: #4CAF50!important;
+}
+
+.button--default{
+    color: #000!important;
+    background-color: #f1f1f1!important;
+}
+
 @media screen and (min-width: 820px) and (max-width: 992px){
     .locations{
         &_details{
@@ -98,14 +157,10 @@
 }
 
 // AUTOCOMPLETE
-
-
-/*the container must be positioned relative:*/
 .autocomplete {
     position: relative;
-    display: inline-block;
-  }
-  
+    display: flex;
+
   input {
     border: 1px solid transparent;
     background-color: #f1f1f1;
@@ -153,3 +208,58 @@
     background-color: DodgerBlue !important; 
     color: #ffffff; 
   }
+
+}
+  
+// Ribbons
+.ribbon {
+$default-right: 10px;
+$default-top: -2px;
+$default-color: #2ca7d8;
+$default-width: 40px;
+$default-height: 45px;
+
+position: absolute;
+right: var(--right, $default-right);
+top: var(--top, $default-top);
+
+filter: drop-shadow(2px 3px 2px rgba(black, 0.5));
+
+> .content {
+    color: white;
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: 400;
+    background: var(--color, $default-color) linear-gradient(45deg, rgba(black, 0) 0%, rgba(white, 0.25) 100%);
+    padding: 8px 2px 4px;
+    
+    
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
+    
+    width: var(--width, $default-width);
+    min-height: var(--height, $default-height);
+    
+    transition: clip-path 1s, padding 1s, background 1s;
+}
+
+&.slant-up > .content {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), 50% calc(100% - 6px), 0 100%);
+}
+
+&.slant-down > .content {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 6px), 0 calc(100% - 12px));
+}
+
+&.down > .content {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), 50% 100%, 0 calc(100% - 8px));
+}
+
+&.up > .content {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 8px), 0 100%);
+}
+
+&.check > .content {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 40% 100%, 0 calc(100% - 12px));
+}
+}
+  
