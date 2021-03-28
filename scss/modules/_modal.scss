@@ -51,13 +51,12 @@
   
   #modal-container {
     position: fixed;
-    /* display: table; */
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
     transform: scale(0);
-    z-index: 1;
+    z-index: 10;
     overflow: auto;
     background: #fff;
     &.one {

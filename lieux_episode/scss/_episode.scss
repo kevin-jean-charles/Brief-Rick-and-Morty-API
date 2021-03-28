@@ -2,11 +2,33 @@
 
 *{ box-sizing: border-box; }
 
-.lieux{
-    background: url('../images/A1NLo2zU4LL._SL1500_.jpg');
+.body_bg{
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: $Nosifer;
+    background: url("../images/bg_RandM.jpg");
+    background-size: contain;
+    font-size: 12px;
+    margin: 0;
 }
+
+
+.wrapper_bg{
+    background: url("../images/Daco_109903.png") no-repeat;
+    position: absolute;
+    height: 480px;
+    width: 100%;
+    background-size: contain;
+    background-position: top;
+}  
+
+.wrapper{
+    position: relative;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 1400px;
+    z-index: 30;
+}  
 
 .responsive_img{
     width: 100%;
@@ -14,7 +36,6 @@
 }
 
 .locations{
-   
     height: 100%;
     padding-top: 100px;
     a{
@@ -35,9 +56,10 @@
     }
 
     &_title{
-        color: #fff;
+        color: #6C1007;
         font-size: 3em;
-        text-shadow: 0 0 10px #000;    
+        text-shadow: 0 0 10px #000;  
+        font-family: $Nosifer;  
     }
 
     &_count{
@@ -68,10 +90,12 @@
             height: 150px;
             bottom: 0px;
             width: 100%;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
             width: 200px;
             padding: 10px;
-            border-radius: 5px 5px 10px 10px;
+            border-radius: 5px 5px 0px 0px;
+            z-index: 2;
+            border-bottom: 10px solid #6C1007;
             :first-child{
                 color: $colorOrange;
                 background: #e7e7e7;
@@ -88,6 +112,16 @@
             a{
                 margin-top: 15px;
                 display: block;
+            }
+            &_bg{
+                background: url("../images/blood_PNG6092.png");
+                height: 70px;
+                width: 200px;
+                background-size: cover;
+                bottom: 200px;
+                position: absolute;
+                top: 100%;
+                z-index: 1;
             }
         }
     }
@@ -110,6 +144,7 @@
 
 
 .buttons{
+    margin-top: 100px;
     .button{
         border: none;
         display: inline-block;
@@ -132,6 +167,17 @@
 .button--green{
     color: #fff!important;
     background-color: #4CAF50!important;
+}
+
+.button--red{
+    color: #fff!important;
+    background-color: $redColor!important;
+}
+
+.button[disabled=true]{
+  border: 1px solid #999999!important;
+  background-color: #cccccc!important;
+  color: #666666!important;
 }
 
 .button--default{
@@ -159,7 +205,10 @@
 // AUTOCOMPLETE
 .autocomplete {
     position: relative;
+    width: 100%;
+    text-align: center;
     display: flex;
+    justify-content: center;
 
   input {
     border: 1px solid transparent;
@@ -174,7 +223,7 @@
   }
   
   input[type=submit] {
-    background-color: DodgerBlue;
+    background-color: $redColor;
     color: #fff;
     cursor: pointer;
   }
@@ -263,3 +312,5 @@ filter: drop-shadow(2px 3px 2px rgba(black, 0.5));
 }
 }
   
+
+

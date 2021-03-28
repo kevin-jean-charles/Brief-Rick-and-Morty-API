@@ -6,15 +6,8 @@ $duration: .3s;
 @import './modules/navbar';
 @import './modules/card';
 @import './modules/modal';
-@import '../lieux/scss/lieux';
-@import '../episode/scss/episode';
+@import '../lieux_episode/scss/lieux';
+@import '../lieux_episode/scss/lieux';
 @import '../personnage/scss/personnage';
 
 
-body{
-    font-family: $Schwifty;
-    font-size: 16px;
-    line-height: 1.4;
-    max-width: 1200px;
-    margin: 0 auto;
-}

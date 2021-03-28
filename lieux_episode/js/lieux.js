@@ -13,20 +13,17 @@ class Location{
             const {info, results} = locations;
             this.locations = results;
             this.info = info;
-            setTimeout(() => {
-                locations_bg.innerHTML += this.init();
-                _autocomplete(document.getElementById("myInput"), _types);
-                this.createLocations(this.locations);
-                this.searchByType();
-            });
+            locations_bg.innerHTML += this.init();
+            _autocomplete(document.getElementById("myInput"), _types);
+            this.createLocations(this.locations);
+            this.searchByType();
         });
     }
 
     init(){ 
         return `<div class="locations_body">
-                    <h1 class="locations_title">Rick And Morty</h1>
+                    <h3 class="locations_title">Locations</h3>
                     <span class="locations_count">Location (${this.info.count})</span>
-                    <a href="${this.info.next}" class="locations_link" href="">Pages suivante</a>
                     <ul class="locations_list"></ul>
                 </div>`;
     }
@@ -38,18 +35,19 @@ class Location{
             let li = document.createElement('li');
             li.innerHTML += `<div class="locations_card">
                                 <div class="ribbon up" style="--color: #8975b4;">
-                                <div class="content">${location.residents.length}</div>
-                            </div>
-                            <div class="locations_card_body">
-                                <span class="locations_card_label">${location.type}</span>
-                                <a data-url="${location.url}" href="#" class="location_name">${location.name}</a>
-                                <span class="location_dimension">${location.dimension}</span>
+                                    <div class="content">${location.residents.length}</div>
+                                </div>
+                                <div class="locations_card_body">
+                                    <span class="locations_card_label">${location.type}</span>
+                                    <a data-url="${location.url}" href="#" class="location_name">${location.name}</a>
+                                    <span class="location_dimension">${location.dimension}</span>
+                                </div>
+                                <div class="locations_card_body_bg"></div>
                             </div>`;
             li.querySelector('a').addEventListener('click', this.showDetails.bind(this));
             locations_list.append(li);
         });
         this.cratePagintion();
-        
     }
 
     cratePagintion(){
@@ -57,11 +55,12 @@ class Location{
         buttons.innerHTML = "";
         let next = document.createElement('button');
         let prev = document.createElement('button');
-        prev.className = "button button--green";
+        prev.className = "button button--red";
         prev.textContent = "<< Prcédent";
         prev.dataset.url = this.info.prev;
+        this.info.prev === null ? prev.setAttribute('disabled', true) : ''; 
         prev.addEventListener('click', this.prev.bind(this))
-        next.className = "button button--green";
+        next.className = "button button--red";
         next.textContent = "Suivant >>";
         next.dataset.url = this.info.next;
         next.addEventListener('click', this.next.bind(this))
@@ -70,19 +69,14 @@ class Location{
     }
 
     prev(e){
-        if(e.target.dataset.url !== 'null'){
-            _fetchData(e.target.dataset.url)
-            .then((locations) => {
-                const {info, results} = locations;
-                this.info = info;
-                this.createLocations(results);
-            });
-        }else{ 
-            e.target.setAttribute('desabled', true); 
-        }
+      this.getDataPagination(e);
     }
 
     next(e){
+        this.getDataPagination(e);
+    }
+ 
+    getDataPagination(e) {
         if(e.target.dataset.url !== 'null'){
             _fetchData(e.target.dataset.url)
             .then((locations) => {
@@ -91,10 +85,9 @@ class Location{
                 this.createLocations(results);
             });
         }else{ 
-            e.target.setAttribute('desabled', true); 
+            e.target.setAttribute('disabled', true); 
         }
     }
-
 
     showDetails(e){
         e.preventDefault();   
@@ -192,47 +185,8 @@ class Location{
                     return [...new Set(listTypes)];
                 });
     }
-  }
-
-  var c = Sketch.create({autoclear: false}),
-    drops = [],
-    dropCount = 75,
-    Drop = function() {
-      this.x = random(0,c.width);
-      this.radius = random(2.5,5);
-      this.y = -this.radius - random(10,50);
-      this.vy = this.radius/3;
-      this.r = ~~random(240,255);
-      this.g = ~~random(0,20);
-      this.b = ~~random(0,20);
-    }; 
-
-c.update = function() {
-  var d = drops.length;
-  while(d < dropCount) {
-    var drop = new Drop();
-    drops.push(drop);
-    d++;
-  }
-  while(d--) {
-    var drop = drops[d];
-    drop.y += drop.vy;
-    if(drop.y - drop.radius > c.height) {
-      drops.splice(d,1);
-    }
-  }
 }
 
-c.draw = function() {
-  var d = drops.length;
-  while(d--) {
-    var drop = drops[d];
-    c.beginPath();
-    c.fillStyle = 'rgba('+drop.r+','+drop.g+','+drop.b+',.8)';
-    c.arc(drop.x,drop.y,drop.radius,0,TWO_PI);
-    c.fill();
-  }
-} 
-  new Location();
+new Location();
 
   
