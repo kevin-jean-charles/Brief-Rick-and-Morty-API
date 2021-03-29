@@ -1,0 +1,25 @@
+@mixin flexArrow() {
+	display: flex;
+	justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+@mixin flexCenter() {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexBetween() {
+	display: flex;
+	justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@mixin absoluteCenter() {
+    position: absolute;
+	left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+

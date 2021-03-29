@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/kevinJCMotived/Rick-and-Morty-API/issues"
   },
-  "homepage": "https://github.com/kevinJCMotived/Rick-and-Morty-API#readme"
+  "homepage": "https://github.com/kevinJCMotived/Rick-and-Morty-API#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "sass": "^1.32.8"
+  }
 }
