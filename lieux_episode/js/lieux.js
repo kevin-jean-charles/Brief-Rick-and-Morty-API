@@ -45,10 +45,10 @@ class Location{
             li.querySelector('a').addEventListener('click', this.showDetails.bind(this));
             locations_list.append(li);
         });
-        this.cratePagintion();
+        this.createPagintion();
     }
 
-    cratePagintion(){
+    createPagintion(){
         let buttons = document.querySelector('.buttons');
         buttons.innerHTML = "";
         let next = document.createElement('button');
