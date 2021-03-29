@@ -1,9 +1,12 @@
 // VARIABLES
+$duration: .3s;
 
 @import './variables';
 @import './mixin';
-@import '../lieux/scss/lieux';
-@import '../accueil/scss/accueil';
+@import './modules/navbar';
+@import './modules/card';
+@import './modules/modal';
+@import '../lieux_episode/scss/base';
 @import '../personnage/scss/personnage';
 
 
