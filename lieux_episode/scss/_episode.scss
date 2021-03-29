@@ -43,11 +43,11 @@
     position: relative;
     top: 10%;
     width: 100%;
-    text-align: center;
-    margin-top: 30px;
-    .card{
-        width: 33%;
-    }
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 1;
+    justify-content: center;
   }
   
   .overlay a {

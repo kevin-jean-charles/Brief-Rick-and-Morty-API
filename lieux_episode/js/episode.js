@@ -84,13 +84,13 @@ class Episode{
                 .then(resp => Promise.all( resp.map(res => res)))
                 .then(characteres => {
                     this.characters = characteres;
-                   console.log(characteres)
 
                 //    $(elem + ' figure').each(function(i){
                 //     setTimeout(function(){
                 //         $(elem + ' figure').eq(i).addClass('is-showing');
                 //     }, 150 * (i+1));
                 // });
+                    this.createCharacters();
                    document.getElementById("myNav").style.width = "100%";
                 });
             }
@@ -98,23 +98,27 @@ class Episode{
     }
 
     createCharacters(){
-        this.characters
 
+        console.log(this.characters)
+        let overlay_content = document.querySelector('.overlay-content');
+        this.characters.forEach(character => {
+            overlay_content.innerHTML += this.createCharacter(character);
+        });
     }
 
     createCharacter(character){
         return `<div class="deck">
                     <div class="card hovercard">
-                    <div class="front face">
-                        <h2>Hover</h2>
-                        <div class="bottext">
-                        <h3>6000kr</h3>
+                        <div class="front face">
+                            <h2>Hover</h2>
+                            <div class="bottext">
+                            <h3>6000kr</h3>
                         </div>
                     </div>
                     <div class="back face">
                         <h2>Basic</h2>
                         <ul>
-                        <li>6 Sider</li>
+                        <li><img src="${character.image}"/></li>
                         <li>Kontaktside</li>
                         <li>SEO optimeret</li>
                         <li>Mobilvenlig</li>
