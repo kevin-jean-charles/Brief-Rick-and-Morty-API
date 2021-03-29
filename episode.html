@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Episodes</title>
+    <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Vampiro+One&display=swap" rel="stylesheet">    <link rel="stylesheet" href="scss/main.scss">
     <script src="lieux_episode/js/episode.js"></script>
 </head>
@@ -21,17 +20,56 @@
           </ul>
         </nav>
       
-        <h1 class="episodes_title">Rick And Morty</h1>
+        <h1 class="episodes_title">Episodes</h1>
         <p class="tagline">Hover over header for blood</p>
       </header>
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn">&times;</a>
+        <div class="overlay-content">
+          <a href="#">Characters</a>
+          <div class="card">
+            <div class="card-image">
+                <img src="https://picsum.photos/200/300" alt="Orange"/>
+            </div>
+            <div class="card-body"> 
+                <div class="card-date">
+                    <span>Type ${resident.type}</span>
+                </div>     
+                <div class="card-date">
+                    <time>${resident.created}</time>
+                </div>
+                <div class="card-title">
+                    <h3>${resident.name}</h3>
+                </div>
+                <div class="card-excerpt">
+                    <p>${this.location.dimension}</p>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
       <div class="wrapper">
         <div class="wrapper_bg"></div>
-        <div class="episodes">
-            <div class="autocomplete" style="width:300px;">
-                <input id="myInput" type="text"  placeholder="Types">
-                <input type="submit" class="search">
+        <div class="app">
+            <div class="radios">
+                <label for="">All Saison
+                    <input type="radio" name="saison" value="all">
+                </label>
+                <label>Saison 1
+                    <input type="radio" value="S01" name="saison">
+                </label>
+                <label>Saison 2
+                    <input type="radio" value="S02" name="saison">
+                </label>
+                <label>Saison 3
+                    <input type="radio" value="S03" name="saison">
+                </label><label>Saison 4
+                    <input type="radio" value="S04" name="saison">
+                </label>
             </div>
-            <div class="dataList"></div>
+            <div class="app_body">
+                <div class="app_lists"></div>
+            </div>
         </div>
         <div class="buttons"></div>
       </div>

@@ -1,4 +1,3 @@
-
 const {_fetchData, _replaceClass, _autocomplete, _types} = require('./utils');
 const {API_LINK} = require('./conf');
 
@@ -7,9 +6,9 @@ class Location{
     info = {};
     locations = [];
     constructor(){
-    _fetchData(API_LINK.api + "?page=" + this.curent_page)
+    _fetchData(API_LINK.location + "?page=" + this.curent_page)
       .then((locations) => {
-            let locations_bg = document.querySelector('.locations');
+            let locations_bg = document.querySelector('.app');
             const {info, results} = locations;
             this.locations = results;
             this.info = info;
@@ -21,28 +20,27 @@ class Location{
     }
 
     init(){ 
-        return `<div class="locations_body">
-                    <h3 class="locations_title">Locations</h3>
-                    <span class="locations_count">Location (${this.info.count})</span>
-                    <ul class="locations_list"></ul>
+        return `<div class="app_body">
+                    <span class="app_count">Location (${this.info.count})</span>
+                    <ul class="app_list"></ul>
                 </div>`;
     }
 
     createLocations(locations){
-        let locations_list = document.querySelector('.locations_list');
+        let locations_list = document.querySelector('.app_list');
         locations_list.innerHTML = "";
         locations.forEach(location => {
             let li = document.createElement('li');
-            li.innerHTML += `<div class="locations_card">
+            li.innerHTML += `<div class="app_card">
                                 <div class="ribbon up" style="--color: #8975b4;">
                                     <div class="content">${location.residents.length}</div>
                                 </div>
-                                <div class="locations_card_body">
-                                    <span class="locations_card_label">${location.type}</span>
+                                <div class="app_card_body">
+                                    <span class="app_card_label">${location.type}</span>
                                     <a data-url="${location.url}" href="#" class="location_name">${location.name}</a>
                                     <span class="location_dimension">${location.dimension}</span>
                                 </div>
-                                <div class="locations_card_body_bg"></div>
+                                <div class="app_card_body_bg"></div>
                             </div>`;
             li.querySelector('a').addEventListener('click', this.showDetails.bind(this));
             locations_list.append(li);
@@ -63,7 +61,7 @@ class Location{
         next.className = "button button--red";
         next.textContent = "Suivant >>";
         next.dataset.url = this.info.next;
-        next.addEventListener('click', this.next.bind(this))
+        next.addEventListener('click', this.next.bind(this));
         buttons.appendChild(prev);
         buttons.appendChild(next);
     }
@@ -113,7 +111,7 @@ class Location{
         let button_search = document.querySelector('.search');
         button_search.addEventListener('click', (e)  => {
             let input = e.target.previousElementSibling;
-            _fetchData(API_LINK.searchByType + input.value)
+            _fetchData(API_LINK.locationByType + input.value)
                 .then((locations) => {
                      if(input.value.trim().length > 0){
                         this.createLocations(locations.results);

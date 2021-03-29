@@ -1,6 +1,7 @@
 const API_LINK = {
-    api: "https://rickandmortyapi.com/api/location",
-    searchByType: "https://rickandmortyapi.com/api/location?type=",
+    location: "https://rickandmortyapi.com/api/location",
+    episode: "https://rickandmortyapi.com/api/episode",
+    locationByType: "https://rickandmortyapi.com/api/location?type=",
 }
 
 
