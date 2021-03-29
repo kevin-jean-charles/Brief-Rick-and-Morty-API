@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev_lieux": "browser-sync start --server --files='lieux',  css/*.css, js/*.js, *.html' & sass --watch lieux/css/lieux.scss:lieux/css/lieux.css"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
