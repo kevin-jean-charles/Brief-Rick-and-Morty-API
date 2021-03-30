@@ -2,31 +2,30 @@ const {_fetchData, _replaceClass, _autocomplete, _types} = require('./utils');
 const {API_LINK} = require('./conf');
 
 class Episode{
-    curent_page = 1;
     info = {};
     episodes = [];
     characters = [];
+    saisonsFilters = ["S01", "S02", "S03", "S04"];
     constructor(){
-
-        
     _fetchData(API_LINK.episode + "/" + Array.from({length: 41}, (v, k) => k + 1))
       .then((episodes) => {
             this.episodes = episodes;
-            this.saisonsFilters = ["S01", "S02", "S03", "S04"];
             this.createSectionEpisodes(); 
-            this.addEventRadioButton();
-            this.closeNav();
+            this.addEventRadioButtons();
         });
     }
 
     closeNav(){
         let closeNav = document.querySelector('.closebtn');
+        let overlay_content = document.querySelector('.overlay-content');
         closeNav.addEventListener('click', function(e){
+
+            overlay_content.innerHTML= "";
             document.getElementById("myNav").style.width = "0%";
         });
     }
 
-    addEventRadioButton(){
+    addEventRadioButtons(){
         let radios = document.querySelectorAll('.radios input');
         radios.forEach(radio => {
             radio.addEventListener('change', (event) => {
@@ -36,7 +35,7 @@ class Episode{
                 if(event.target.value !== "all"){
                     let saisons = this.episodes.filter(saison => saison.episode.indexOf(event.target.value) > -1);
                     app_list.appendChild(
-                        this.createHeaderHeaderWithEpisodes(saisons, number_saison)
+                        this.createHeaderWithEpisodes(saisons, number_saison)
                     );
                 }else{ this.createSectionEpisodes(); }
             });
@@ -44,19 +43,19 @@ class Episode{
     }
 
     createSectionEpisodes(){
-        let app_list = document.querySelector('.app_lists');
+        let app_lists = document.querySelector('.app_lists');
         this.saisonsFilters.forEach((saisonFilter, index) => {
-            let episodes = this.episodes.filter(saison => saison.episode.indexOf(saisonFilter) > -1);
-            app_list.appendChild(
+            let episodes = this.episodes.filter(episode => episode.episode.indexOf(saisonFilter) > -1);
+            app_lists.appendChild(
                 this.createHeaderWithEpisodes(episodes, index + 1)
             );
         });
     }
 
-    createEpisodes(saisons){
+    createEpisodes(episodes){
        let ul = document.createElement('ul');
        ul.className = "app_list";
-       saisons.forEach(episode => {
+       episodes.forEach(episode => {
             let li = document.createElement('li');
             li.innerHTML += `<div class="app_card">
                                 <div class="ribbon up" style="--color: #8975b4;">
@@ -79,48 +78,55 @@ class Episode{
         e.preventDefault();
         _fetchData(e.target.dataset.url)
         .then((episode) => {
-            if(episode.characters.length > 0){
-                Promise.all(episode.characters.map(url => _fetchData(url)))
-                .then(resp => Promise.all( resp.map(res => res)))
-                .then(characteres => {
-                    this.characters = characteres;
-                   console.log(characteres)
-
-                //    $(elem + ' figure').each(function(i){
-                //     setTimeout(function(){
-                //         $(elem + ' figure').eq(i).addClass('is-showing');
-                //     }, 150 * (i+1));
-                // });
-                   document.getElementById("myNav").style.width = "100%";
+            Promise.all(episode.characters.map(url => _fetchData(url)))
+            .then(resp => Promise.all( resp.map(res => res)))
+            .then(characteres => {
+               this.characters = characteres;
+               this.createCharacters();
+               let cpt = 0;
+               document.getElementById("myNav").style.width = "100%";
+               let decks = document.querySelectorAll(".overlay-content .deck");
+               decks.forEach((elem, index) => {
+                    setTimeout(function(){
+                        let deck = decks[index];
+                        deck.classList.add('is-showing');
+                        deck.querySelector('.card').classList.add('active');
+                    }, 200 * (index+1));
+                    cpt++;
                 });
-            }
+                if(cpt == decks.length){
+                    this.closeNav();
+                }
+            });
          });
     }
 
     createCharacters(){
-        this.characters
-
+        let overlay_content = document.querySelector('.overlay-content');
+        overlay_content.innerHTML= "";
+        this.characters.forEach(character => {
+            overlay_content.innerHTML += this.createCharacter(character);
+        });
     }
 
     createCharacter(character){
         return `<div class="deck">
                     <div class="card hovercard">
-                    <div class="front face">
-                        <h2>Hover</h2>
-                        <div class="bottext">
-                        <h3>6000kr</h3>
+                        <div class="front face">
+                            <h2>Rick and Morty</h2>
+                            <div class="bottext">
                         </div>
                     </div>
                     <div class="back face">
-                        <h2>Basic</h2>
+                        <h2>${character.name}</h2>
                         <ul>
-                        <li>6 Sider</li>
-                        <li>Kontaktside</li>
-                        <li>SEO optimeret</li>
-                        <li>Mobilvenlig</li>
+                            <li><img src="${character.image}"/></li>
+                            <li>Genre: ${character.gender}</li>
+                            <li>Èspèce: ${character.species}</li>
+                            <li>Status: ${character.status}</li>
                         </ul>
                         <div class="botprice">
-                        <h3>6000kr</h3>
+                            <h3>Type: ${character.type !== "" ? character.type : "Unknown"}</h3>
                         </div>
                     </div>
                     </div>
