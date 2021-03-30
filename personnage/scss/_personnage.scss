@@ -13,7 +13,8 @@
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    z-index: 3; 
+    z-index: 3;
+    justify-content: space-around; 
     
     .card img{
       height: auto;
