@@ -64,6 +64,7 @@ getDataPagination(e) {
 
   addEventRadionBtn() {
     let radios = document.querySelectorAll(".radios input")
+    console.log(radios);
     radios.forEach(radio => {
       radio.addEventListener("change", (event) => {
         let app_lists = document.querySelector(".app_lists");
@@ -126,10 +127,8 @@ getDataPagination(e) {
     <div class="card__header">    
       <img src="${personnage.image}" alt=''>
       <h2 data-url="${personnage.url}" class="face__name">${personnage.name}</h2>
-      <h4>&dash; Bonn &dash;</h4>
     </div>
     <div class="card_body">
-      <p> ${personnage.name}</p>
       <p>Statut: ${personnage.status}</p>
       <p>Espèce: ${personnage.species}</p>
       <p>Nombre d'episode: ${personnage.episode.length}</p>
