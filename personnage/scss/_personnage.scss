@@ -1,13 +1,13 @@
 
 .wrapper_personnage {
-    .radios {
-      width: 400px;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      color: #fff;
-      position: relative;
-    }
+  .radios {
+    width: 400px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    position: relative;
+  }
 
   .app_lists{
     display: flex;
@@ -19,11 +19,13 @@
     .card img{
       height: auto;
       width: 100%;
+      border-radius: 10px 10px 0 0;
     }
 
     .card__header{
       h2{
-        height: 150px;
+        height: 70px;
+        cursor: pointer;
       }
     }
   }

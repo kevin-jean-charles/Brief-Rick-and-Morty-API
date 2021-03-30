@@ -399,7 +399,7 @@ var Personnage = /*#__PURE__*/function () {
   }, {
     key: "createPersonnage",
     value: function createPersonnage(personnage) {
-      return "\n  <div class=\"card\">\n    <div class=\"card__header\">    \n      <img src=\"".concat(personnage.image, "\" alt=''>\n      <h2 data-url=\"").concat(personnage.url, "\" class=\"face__name\">").concat(personnage.name, "</h2>\n      <h4>&dash; Bonn &dash;</h4>\n    </div>\n    <div class=\"card_body\">\n      <p> ").concat(personnage.name, "</p>\n      <p>Statut: ").concat(personnage.status, "</p>\n      <p>Esp\xE8ce: ").concat(personnage.species, "</p>\n      <p>Nombre d'episode: ").concat(personnage.episode.length, "</p>\n    </div>\n  </div>\n    ");
+      return "<div class=\"card\">\n              <div class=\"card__header\">    \n                <img src=\"".concat(personnage.image, "\" alt=''>\n                <h2 data-url=\"").concat(personnage.url, "\" class=\"face__name\">").concat(personnage.name, "</h2>\n                <h4>&dash; Bonn &dash;</h4>\n              </div>\n              <div class=\"card_body\">\n                <p> ").concat(personnage.name, "</p>\n                <p>Statut: ").concat(personnage.status, "</p>\n                <p>Esp\xE8ce: ").concat(personnage.species, "</p>\n                <p>Nombre d'episode: ").concat(personnage.episode.length, "</p>\n              </div>\n            </div>");
     } // nom, status, espèce, type, genre, planète d'origine, dernier lieux de positionnement connu, les épisodes dans le(s)quel(s) le personnage apparait
 
   }, {
@@ -453,7 +453,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56634" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59153" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -82,60 +82,58 @@ getDataPagination(e) {
   }
 
 
-  createPersonnages(episodes){
-      let app_lists = document.querySelector(".app_lists");
-      app_lists.innerHTML = "";
-      episodes.forEach(personnage => {
-        app_lists.innerHTML += this.createPersonnage(personnage)
-      })
+createPersonnages(episodes){
+  let app_lists = document.querySelector(".app_lists");
+  app_lists.innerHTML = "";
+  episodes.forEach(personnage => {
+    app_lists.innerHTML += this.createPersonnage(personnage)
+  })
 
 
-    console.log(this.personnages);
-      app_lists.querySelectorAll(".face__name").forEach(name => {
-        name.addEventListener("click", this.showCharacters.bind(this))
-      });
+console.log(this.personnages);
+  app_lists.querySelectorAll(".face__name").forEach(name => {
+    name.addEventListener("click", this.showCharacters.bind(this))
+  });
 
-    this.createPagintion()
-    }
+this.createPagintion()
+}
 
-  showCharacters(event) {
-      _fetchData(event.currentTarget.dataset.url)
-      .then((personnage) => {
-        this.personnage = personnage;
-        console.log(this.personnage);
-        Promise.all(this.personnage.episode.map(url => _fetchData(url)))
-          .then(resp => Promise.all(resp.map(res => res)))
-          .then(episodes => {
-            document.querySelector(".app__modal").innerHTML = this.showEpisodeDetails(episodes, this.personnage);
-            document.body.classList.add('modal-active');
-            document.querySelector('.close').addEventListener('click', (e) => {
-              _replaceClass(e.target.parentNode, 'two', 'out');
-              document.body.classList.remove('modal-active')
-            });
-            console.log(episodes);
-
-            // document.querySelector('.dataList').innerHTML = this.showLocationDetails(residents);
-
+showCharacters(event) {
+    _fetchData(event.currentTarget.dataset.url)
+    .then((personnage) => {
+      this.personnage = personnage;
+      console.log(this.personnage);
+      Promise.all(this.personnage.episode.map(url => _fetchData(url)))
+        .then(resp => Promise.all(resp.map(res => res)))
+        .then(episodes => {
+          document.querySelector(".app__modal").innerHTML = this.showEpisodeDetails(episodes, this.personnage);
+          document.body.classList.add('modal-active');
+          document.querySelector('.close').addEventListener('click', (e) => {
+            _replaceClass(e.target.parentNode, 'two', 'out');
+            document.body.classList.remove('modal-active')
           });
-      });
-  }
+          console.log(episodes);
+
+          // document.querySelector('.dataList').innerHTML = this.showLocationDetails(residents);
+
+        });
+    });
+}
 
   createPersonnage(personnage) {
-    return `
-  <div class="card">
-    <div class="card__header">    
-      <img src="${personnage.image}" alt=''>
-      <h2 data-url="${personnage.url}" class="face__name">${personnage.name}</h2>
-      <h4>&dash; Bonn &dash;</h4>
-    </div>
-    <div class="card_body">
-      <p> ${personnage.name}</p>
-      <p>Statut: ${personnage.status}</p>
-      <p>Espèce: ${personnage.species}</p>
-      <p>Nombre d'episode: ${personnage.episode.length}</p>
-    </div>
-  </div>
-    `
+    return `<div class="card">
+              <div class="card__header">    
+                <img src="${personnage.image}" alt=''>
+                <h2 data-url="${personnage.url}" class="face__name">${personnage.name}</h2>
+                <h4>&dash; Bonn &dash;</h4>
+              </div>
+              <div class="card_body">
+                <p> ${personnage.name}</p>
+                <p>Statut: ${personnage.status}</p>
+                <p>Espèce: ${personnage.species}</p>
+                <p>Nombre d'episode: ${personnage.episode.length}</p>
+              </div>
+            </div>`;
   }
 
 
