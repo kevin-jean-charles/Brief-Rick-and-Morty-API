@@ -1,0 +1,27 @@
+{
+  "name": "Rick-and-Morty-API",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinJCMotived/Rick-and-Morty-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinJCMotived/Rick-and-Morty-API/issues"
+  },
+  "homepage": "https://github.com/kevinJCMotived/Rick-and-Morty-API#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.13.12",
+    "cssnano": "^4.1.10",
+    "sass": "^1.32.8"
+  }
+}

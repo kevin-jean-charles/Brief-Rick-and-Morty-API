@@ -1,0 +1,38 @@
+// VARIABLES
+$duration: .3s;
+
+@import './variables';
+@import './mixin';
+@import './modules/navbar';
+@import './modules/card';
+@import './modules/cardV2';
+@import './modules/cardV3';
+@import './modules/modal';
+@import '../lieux_episode/scss/base';
+@import '../personnage/scss/personnage';
+
+
+body{
+    margin: 0;
+}
+
+.wrapper_body{
+    position: relative;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 1400px;
+}  
+
+
+.home{
+    background: url("https://cdn.statically.io/img/i.pinimg.com/originals/f0/06/9d/f0069d267e5b91c44aab1e97234f0afc.png") no-repeat;
+    background-size: cover;
+    background-position: top 100px center;
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
+    h1{
+        text-align: center;
+        font-family: $Blood !important;;
+    }
+}

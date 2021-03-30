@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro');
+
+$card-size: 400px;
+$image-size: 100%;
+$image-height: 250px;
+
+
+.cardV1{
+  .card {
+  margin: 0px auto 20px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding: 10px;
+  a {
+   color: #333;
+	 text-decoration:none;
+  }
+  
+  &:hover {  
+    .card-image {
+      img {
+         width: $image-size+10%;
+         filter:grayscale(0);
+      }  
+    }
+  }
+  
+}
+
+.card-image {
+
+   height: 250px;
+  
+  position:relative;
+  overflow:hidden;
+  
+  img {
+    width: $image-size;
+    
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    filter: grayscale(1);
+    
+    transition-property: filter width;
+    transition-duration: .3s; 
+  }
+ 
+}
+
+.card-body {
+  text-align:center; 
+  padding: 15px 20px; 
+  box-sizing: border-box;
+}
+
+.card-date {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.card-title, .card-exceprt {
+   font-family: 'Playfair Display', serif;
+}
+
+.card-date, .card-title {
+  text-align:center;
+  text-transform:uppercase;
+  font-weight: bold;
+}
+
+.card-date, .card-excerpt {
+  color: #777;
+}
+}

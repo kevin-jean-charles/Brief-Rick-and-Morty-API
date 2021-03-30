@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locations</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vampiro+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
+    <link rel="stylesheet" href="scss/main.scss">
+    <script src="lieux_episode/js/lieux.js" defer></script>
+</head>
+<body class="lieux">
+    <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="episode.html">Épisose</a></li>
+            <li><a href="personnage.html">Personnages</a></li>
+            <li><a href="lieux.html">Locations</a></li>
+          </ul>
+        </nav>
+      
+        <h1 class="locations_title">Locations</h1>
+        <p class="tagline">Hover over header for blood</p>
+      </header>
+      <div class="wrapper_lieux">
+        <div class="app">
+            <div class="autocomplete" style="width:300px;">
+                <input id="myInput" type="text"  placeholder="Types">
+                <input type="submit" class="search">
+            </div>
+            <div class="dataList"></div>
+        </div>
+        <div class="buttons"></div>
+      </div>
+</body>
+</html>
