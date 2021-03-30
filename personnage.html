@@ -2,80 +2,99 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Episodes</title>
-  <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Vampiro+One&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="scss/main.scss">
-  <script src="personnage/js/personnage.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnages</title>
+    <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vampiro+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="scss/main.scss">
+    <script src="personnage/js/personnage.js" defer></script>
 </head>
 
 <body class="body_bg">
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="episode.html">Épisose</a></li>
-        <li><a href="personnage.html">Personnages</a></li>
-        <li><a href="lieux.html">Locations</a></li>
-      </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="episode.html">Épisose</a></li>
+                <li><a href="personnage.html">Personnages</a></li>
+                <li><a href="lieux.html">Locations</a></li>
+            </ul>
+        </nav>
 
-    <h1 class="episodes_title">Episodes</h1>
-    <p class="tagline">Hover over header for blood</p>
-  </header>
+        <h1 class="episodes_title">Personnages</h1>
+        <p class="tagline">Hover over header for blood</p>
+    </header>
 
 
-  <div id="myNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn">&times;</a>
-    <div class="overlay-content">
-      <a href="#">Characters</a>
-      <div class="card">
-        <div class="card-image">
-          <img src="https://picsum.photos/200/300" alt="Orange" />
+    <div class="wrapper_personnage">
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn">&times;</a>
+            <div class="overlay-content">
+                <a href="#">Characters</a>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/200/300" alt="Orange" />
+                    </div>
+                    <div class="card-body">
+                        <div class="card-date">
+                            <span>Type ${resident.type}</span>
+                        </div>
+                        <div class="card-date">
+                            <time>${resident.created}</time>
+                        </div>
+                        <div class="card-title">
+                            <h3>${resident.name}</h3>
+                        </div>
+                        <div class="card-excerpt">
+                            <p>${this.location.dimension}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-          <div class="card-date">
-            <span>Type ${resident.type}</span>
-          </div>
-          <div class="card-date">
-            <time>${resident.created}</time>
-          </div>
-          <div class="card-title">
-            <h3>${resident.name}</h3>
-          </div>
-          <div class="card-excerpt">
-            <p>${this.location.dimension}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="wrapper">
-    <div class="wrapper_bg"></div>
+        <div class="app">
+            <div class="radios">
+                <label for="">All
+                    <input type="radio" value="all" name="species">
+                </label>
+                <label>Human
+                    <input type="radio" value="Human" name="species">
+                </label>
+                <label>Alien
+                    <input type="radio" value="Alien" name="species">
+                </label>
+                <label>Animal
+                    <input type="radio" value="Animal" name="species">
+                </label>
+                <label>Robot
+                    <input type="radio" value="Robot" name="species">
+                </label>
+                <label>Humanoid
+                    <input type="radio" value="Humanoid" name="species">
+                </label>
+                <label>Disease
+                    <input type="radio" value="Disease" name="species">
+                </label>
+                <label>Cronenberg
+                    <input type="radio" value="Cronenberg" name="species">
+                </label>
+                <label>Poopybutthole
+                    <input type="radio" value="Poopybutthole" name="species">
+                </label>
+                <label>Unknown
+                    <input type="radio" value="Unknown" name="species">
+                </label>
+            </div>
 
-    <div class="app">
-      <div class="radios">
-        <label for="">All
-          <input type="radio" value="all" name="species">
-        </label>
-        <label>Human
-          <input type="radio" value="Human" name="species">
-        </label>
-        <label>Alien
-          <input type="radio" value="Alien" name="species">
-        </label>
-      </div>
-      
-      <div class="app_body">
-        <div class="app_lists cardV3"></div>
-      </div>
-      <div class="app__modal"></div>
+            <div class="app_body">
+                <div class="app_lists cardV3"></div>
+            </div>
+            <div class="app__modal"></div>
+        </div>
+        <div class="buttons"></div>
     </div>
-    <div class="buttons"></div>
-  </div>
 </body>
 
 </html>

@@ -67,11 +67,13 @@ class Location{
     }
 
     prev(e){
-      this.getDataPagination(e);
+        this.getDataPagination(e);
+        window.scrollTo(0, 0);
     }
 
     next(e){
         this.getDataPagination(e);
+        window.scrollTo(0, 0);
     }
  
     getDataPagination(e) {

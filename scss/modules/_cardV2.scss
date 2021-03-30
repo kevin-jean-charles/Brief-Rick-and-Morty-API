@@ -66,15 +66,27 @@
       .back{
         box-shadow: 0 0 0 #aaa;
       }
-      .flipped, .hovercard:hover{
-        -webkit-transform: rotateY(180deg);
-        transform: rotateY(180deg);
-        .front{
-          box-shadow:0 0 0 #aaa;
-        }
-        .back{
-          box-shadow: 5px 5px 5px #aaa;
-        }
+    //   .flipped, .hovercard:hover{
+    //     -webkit-transform: rotateY(180deg);
+    //     transform: rotateY(180deg);
+    //     .front{
+    //       box-shadow:0 0 0 #aaa;
+    //     }
+    //     .back{
+    //       box-shadow: 5px 5px 5px #aaa;
+    //     }
+    //   }
+      .card{transition: all .7s linear;
+            &.active{
+                -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+                .front{
+                box-shadow:0 0 0 #aaa;
+                }
+                .back{
+                box-shadow: 5px 5px 5px #aaa;
+                }
+            }
       }
       .bottext{
         position:absolute; 
